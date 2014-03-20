@@ -8,14 +8,13 @@ class WordAnalysis
     @input_string.downcase.scan(/\w+/) do |word|
       text_hash[word] += 1
     end
-  text_hash
+    text_hash
   end
 
   def lettercount
     @input_string = @input_string.downcase
     text_hash = Hash.new(0)
     @input_string.scan(/[[:alpha:]]/i).each_with_object(Hash.new(0)) { |c, h| h[c] += 1 }
-
   end
 
   def symbol_count
@@ -23,7 +22,7 @@ class WordAnalysis
     @input_string.downcase.scan(/[^\w\s]/) do |word|
       text_hash[word] += 1
     end
-  text_hash
+    text_hash
   end
 
   def top_three_words
@@ -47,7 +46,6 @@ class WordAnalysis
     output << top3sorted[2][0]
     output
   end
-
 end
 
 test_string = WordAnalysis.new("apple. apple, ball; ball: ball-can .can :can +can =can foo foo blah blah blah blah")
