@@ -13,7 +13,6 @@ class WordAnalysis
 
   def letter_count
     @input_string = @input_string.downcase
-    text_hash = Hash.new(0)
     @input_string.scan(/[[:alpha:]]/i).each_with_object(Hash.new(0)) { |c, h| h[c] += 1 }
   end
 
@@ -35,6 +34,3 @@ class WordAnalysis
     sorted_letters.slice(0, 3).map { |letter, count| letter }
   end
 end
-
-test_string = WordAnalysis.new("apple. apple, ball; ball: ball-can .can :can +can =can foo foo blah blah blah blah")
-test_string.top_three_words
