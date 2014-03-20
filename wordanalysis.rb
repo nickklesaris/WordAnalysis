@@ -3,7 +3,7 @@ class WordAnalysis
     @input_string = input_string
   end
 
-  def wordcount
+  def word_count
     text_hash = Hash.new(0)
     @input_string.downcase.scan(/\w+/) do |word|
       text_hash[word] += 1
@@ -11,7 +11,7 @@ class WordAnalysis
     text_hash
   end
 
-  def lettercount
+  def letter_count
     @input_string = @input_string.downcase
     text_hash = Hash.new(0)
     @input_string.scan(/[[:alpha:]]/i).each_with_object(Hash.new(0)) { |c, h| h[c] += 1 }
@@ -26,12 +26,12 @@ class WordAnalysis
   end
 
   def top_three_words
-    sorted_words = wordcount.sort_by { |word, count| -count }
+    sorted_words = word_count.sort_by { |word, count| -count }
     sorted_words.slice(0, 3).map { |word, count| word }
   end
 
   def top_three_letters
-    sorted_letters = lettercount.sort_by { |word, count| -count }
+    sorted_letters = letter_count.sort_by { |word, count| -count }
     sorted_letters.slice(0, 3).map { |letter, count| letter }
   end
 end
