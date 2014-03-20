@@ -28,17 +28,17 @@ class WordAnalysis
   def top_three_words
     input_text = WordAnalysis.new(@input_string)
     word_hash = input_text.wordcount
-    top3sorted = word_hash.sort {|a,b| b[1] <=> a[1]}
+    sorted_words = word_hash.sort_by { |word, count| -count }
 
-    top3sorted.slice(0, 3).map { |word, count| word }
+    sorted_words.slice(0, 3).map { |word, count| word }
   end
 
   def top_three_letters
     input_text = WordAnalysis.new(@input_string)
     letter_hash = input_text.lettercount
-    top3sorted = letter_hash.sort {|a,b| b[1] <=> a[1]}
+    sorted_letters = letter_hash.sort_by { |word, count| -count }
 
-    top3sorted.slice(0, 3).map { |letter, count| letter }
+    sorted_letters.slice(0, 3).map { |letter, count| letter }
   end
 end
 
