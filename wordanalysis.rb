@@ -26,18 +26,12 @@ class WordAnalysis
   end
 
   def top_three_words
-    input_text = WordAnalysis.new(@input_string)
-    word_hash = input_text.wordcount
-    sorted_words = word_hash.sort_by { |word, count| -count }
-
+    sorted_words = wordcount.sort_by { |word, count| -count }
     sorted_words.slice(0, 3).map { |word, count| word }
   end
 
   def top_three_letters
-    input_text = WordAnalysis.new(@input_string)
-    letter_hash = input_text.lettercount
-    sorted_letters = letter_hash.sort_by { |word, count| -count }
-
+    sorted_letters = lettercount.sort_by { |word, count| -count }
     sorted_letters.slice(0, 3).map { |letter, count| letter }
   end
 end
